@@ -4,48 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Action {
-    Grid grid;
-    Grid goal;
-    Cell[][] cells;
-   private int CountMove = 0;
 
-    public int getCountMove() {
-        return CountMove;
-    }
+    private int CountMove = 0;
 
-    public void setCountMove(int countMove) {
-        CountMove = countMove;
-    }
-
-    public Grid getGrid() {
-        return grid;
-    }
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
-
-    public Grid getGoal() {
-        return goal;
-    }
-
-    public void setGoal(Grid goal) {
-        this.goal = goal;
-    }
-
-    public Cell[][] getCells() {
-        return cells;
-    }
-
-    public void setCells(Cell[][] cells) {
-        this.cells = cells;
-    }
-
-    public Action(Grid grid, Grid goal) {
-        this.grid=grid;
-        this.goal=goal;
-        this.cells=grid.getCells();
-    }
 
     public boolean checkBoundary(int x, int y, Cell[][] cells) {
         if (x < cells.length && x >= 0 && y >= 0 && y < cells.length) {
@@ -55,53 +16,101 @@ public class Action {
         return false;
     }
 
-    public boolean checkMoves(int rowSpace,int columnSpace,int x, int y) {
-        if (checkBoundary(x,y,this.cells)){
-            if (this.cells[x][y].getType()!=CellType.BLOCK && x == rowSpace || y == columnSpace) {
+    public boolean checkMoves(int rowSpace, int columnSpace, int x, int y, Grid grid) {
+        if (checkBoundary(x, y, grid.getCells())) {
+            if (grid.getCells()[x][y].getType() != CellType.BLOCK && x == rowSpace || y == columnSpace) {
                 return true;
             }
         }
 
         return false;
     }
-    public boolean equals(Grid grid) {
-        for (int i = 0; i < this.cells.length; i++) {
-            for (int j = 0; j < this.cells.length; j++) {
-                if (this.cells[i][j].getType() != grid.getCells()[i][j].getType())
-                    return false;
-            }
-        }
-        return true;
-    }
-    public boolean isGoal(){
-        if (this.equals(this.goal)){
-            return true;
-        }
-        return false;
-    }
-    public Grid move(int x, int y) {
+
+    public Grid move(int x, int y, Grid grid) {
         this.CountMove++;
-        CellType type=cells[x][y].getType();
+        CellType type = grid.getCells()[x][y].getType();
         int row = 0, column = 0;
         SearchSpace:
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j <cells.length; j++) {
-                if (cells[i][j].getType() == CellType.SPACE) {
+        for (int i = 0; i < grid.getD(); i++) {
+            for (int j = 0; j < grid.getD(); j++) {
+                if (grid.getCells()[i][j].getType() == CellType.SPACE) {
                     row = i;
                     column = j;
                     break SearchSpace;
                 }
             }
         }
-        if(checkMoves(row,column,x,y)){
+        if (checkMoves(row, column, x, y, grid)) {
             grid.getCells()[row][column].setType(type);
             grid.getCells()[x][y].setType(CellType.SPACE);
-        }
-        else{
+        } else {
             System.out.println("a cell can not moves");
         }
-        Grid grid1 = new Grid(this.grid);
+        Grid grid1 = new Grid(grid);
+        grid1.setCode();
         return grid1;
-
     }
+
+    public boolean equals(Grid grid1, Grid grid2) {
+        if (grid1.hashCode() == grid2.hashCode()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isGoal(Grid grid, Grid goal) {
+
+        if (equals(grid, goal)) {
+            return true;
+        }
+        return false;
+    }
+
+    public List<Grid> getNext(Grid grid) {
+        List<Grid> nextState = new ArrayList<Grid>();
+        int row = 0, column = 0;
+        SearchSpace:
+        for (int i = 0; i < grid.getD(); i++) {
+            for (int j = 0; j < grid.getD(); j++) {
+                if (grid.getCells()[i][j].type == CellType.SPACE) {
+                    row = i;
+                    column = j;
+                    break SearchSpace;
+                }
+            }
+        }
+        for (int i = 0; i < grid.getD(); i++) {
+            if (grid.getCells()[i][column].type != CellType.BLOCK && grid.getCells()[i][column].type != CellType.SPACE) {
+                Grid grid1 = new Grid(grid);
+                grid1.parent = grid;
+                CellType type = grid1.getCells()[i][column].getType();
+                grid1.getCells()[row][column].setType(type);
+                grid1.getCells()[i][column].setType(CellType.SPACE);
+                grid1.setCode();
+                nextState.add(grid1);
+            }
+        }
+        for (int i = 0; i < grid.getD(); i++) {
+            if (grid.getCells()[row][i].type != CellType.BLOCK && grid.getCells()[row][i].type != CellType.SPACE) {
+                Grid grid1 = new Grid(grid);
+                grid1.parent = grid;
+                CellType type = grid1.getCells()[row][i].getType();
+                grid1.getCells()[row][column].setType(type);
+                grid1.getCells()[row][i].setType(CellType.SPACE);
+                grid1.setCode();
+                nextState.add(grid1);
+            }
+        }
+        return nextState;
+    }
+
+
+    public int getCountMove() {
+        return CountMove;
+    }
+
+    public void setCountMove(int countMove) {
+        CountMove = countMove;
+    }
+
 }

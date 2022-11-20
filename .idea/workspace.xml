@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69556eaf-3e9f-4698-b3a4-6a5c4f3868a4" name="Default Changelist" comment="" />
+    <list default="true" id="69556eaf-3e9f-4698-b3a4-6a5c4f3868a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/GameInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UserPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UserPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/game/GameInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/strategies/UserPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/UserPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Grid.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +31,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="2Hd1weDbvQ4onVitNstlLAoyBO6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/company/structure" />
@@ -24,6 +45,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -75,11 +97,35 @@
       <workItem from="1668658812166" duration="1576000" />
       <workItem from="1668670008604" duration="2248000" />
       <workItem from="1668673022589" duration="2379000" />
-      <workItem from="1668676805529" duration="2123000" />
+      <workItem from="1668676805529" duration="5932000" />
+      <workItem from="1668683555956" duration="2337000" />
+      <workItem from="1668687162420" duration="1659000" />
+      <workItem from="1668690771240" duration="1004000" />
+      <workItem from="1668848135893" duration="666000" />
+      <workItem from="1668854622697" duration="2018000" />
+      <workItem from="1668868036033" duration="1396000" />
+      <workItem from="1668875772099" duration="1361000" />
+      <workItem from="1668878806188" duration="4123000" />
+      <workItem from="1668884074707" duration="5299000" />
+      <workItem from="1668927360901" duration="187000" />
+      <workItem from="1668928165476" duration="6151000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

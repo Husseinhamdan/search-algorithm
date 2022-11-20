@@ -1,19 +1,70 @@
 package com.company.structure;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 public class Grid {
     //dimension of small grid (color grid)
     private int n;
     //dimension of main grid (big grid)
     private int d;
+    //    level of game
+    private int level;
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     // create Main Grid
     private Cell[][] cells;
     //children
     List<Grid> nextState;
     //parent grid
     Grid parent;
+    String Code = "";
+
+    public void setCode() {
+        for (int i = 0; i < this.cells.length; i++) {
+            for (int j = 0; j < this.cells.length; j++) {
+                if (this.cells[i][j].getType() == CellType.BLOCK) {
+                    this.Code += "X";
+                } else if (this.cells[i][j].getType() == CellType.RED) {
+                    this.Code += "R";
+                } else if (this.cells[i][j].getType() == CellType.BLUE) {
+                    this.Code += "B";
+                } else {
+                    this.Code += " ";
+                }
+            }
+
+        }
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public void setD(int d) {
+        this.d = d;
+    }
+
+    public void setCells(Cell[][] cells) {
+        this.cells = cells;
+    }
+
+    public List<Grid> getNextState() {
+        return nextState;
+    }
+
+    public void setNextState(List<Grid> nextState) {
+        this.nextState = nextState;
+    }
 
     public Grid getParent() {
         return parent;
@@ -22,6 +73,7 @@ public class Grid {
     public void setParent(Grid parent) {
         this.parent = parent;
     }
+
 
     // color console
     public static final String ANSI_RESET = "\u001B[0m";
@@ -34,9 +86,11 @@ public class Grid {
     public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public Grid(int n, int d) {
-        this.n = n;
-        this.d = d;
+    public Grid(int level) {
+        this.level = level;
+        this.n = level + 1;
+        this.d = n + level;
+        this.InitializeGrid();
     }
 
     public Grid(int n, int d, Cell[][] cells) {
@@ -63,29 +117,32 @@ public class Grid {
         this.cells[this.n - 1][this.n - 1].setType(CellType.SPACE);
     }
 
-    public void createGrid() {
-        InitializeGrid();
-        createBlueGrid();
-        createRedGrid();
+    public void StartGrid() {
+
+        this.createBlueGrid();
+        this.createRedGrid();
+        this.setCode();
+
 
     }
 
-    public void createGoalGrid() {
-        InitializeGrid();
+    public void setGoalGrid() {
+
         for (int i = 0; i < this.n; i++)
             for (int j = 0; j < this.n; j++)
                 if (i == this.n - 1 && j == this.n - 1) {
                     continue;
                 } else {
-                    this.cells[i][j].setType(CellType.BLUE);
+                    this.getCells()[i][j].setType(CellType.BLUE);
                 }
         for (int i = this.n - 1; i < this.d; i++)
             for (int j = this.n - 1; j < this.d; j++)
                 if (i == this.n - 1 && j == this.n - 1) {
                     continue;
                 } else {
-                    this.cells[i][j].setType(CellType.RED);
+                    this.getCells()[i][j].setType(CellType.RED);
                 }
+        setCode();
 
     }
 
@@ -111,25 +168,23 @@ public class Grid {
     }
 
     public void printGrid() {
-        int num = 0;
 
         for (int i = 0; i < this.cells.length; i++) {
             for (int j = 0; j < this.cells.length; j++) {
-                num++;
                 if (this.cells[i][j].getType() == CellType.BLOCK) {
                     System.out.print(ANSI_WHITE_BACKGROUND + "(" + i + "," + j + ")" + ANSI_RESET);
-//                    System.out.print('X');
+
                 } else if (this.cells[i][j].getType() == CellType.RED) {
-//                    System.out.print('R');
+
                     System.out.print(ANSI_RED_BACKGROUND + "(" + i + "," + j + ")" + ANSI_RESET);
                 } else if (this.cells[i][j].getType() == CellType.BLUE) {
                     System.out.print(ANSI_BLUE_BACKGROUND + "(" + i + "," + j + ")" + ANSI_RESET);
-//                    System.out.print('B');
+
                 } else {
-//                    System.out.print(' ');
+
                     System.out.print(ANSI_BLACK_BACKGROUND + "(" + i + "," + j + ")" + ANSI_RESET);
                 }
-//                System.out.print(' ');
+
             }
             System.out.println();
         }
@@ -137,46 +192,21 @@ public class Grid {
 
     }
 
-    public List<Grid> getNext() {
-        nextState =new ArrayList<Grid>();
-        int row = 0, column = 0;
-        SearchSpace:
-        for (int i = 0; i < this.getD(); i++) {
-            for (int j = 0; j < this.getD(); j++) {
-                if (this.cells[i][j].type == CellType.SPACE) {
-                    row = i;
-                    column = j;
-                    break SearchSpace;
-                }
-            }
-        }
-        for (int i = 0; i < this.getD(); i++) {
-            if (this.cells[i][column].type!= CellType.BLOCK && this.cells[i][column].type!=CellType.SPACE) {
-                Grid grid1 = new Grid(this);
-                grid1.parent=this;
-                CellType type=grid1.getCells()[i][column].getType();
-                grid1.getCells()[row][column].setType(type);
-                grid1.getCells()[i][column].setType(CellType.SPACE);
-                this.nextState.add(grid1);
-            }
-        }
-        for (int i = 0; i < this.getD(); i++) {
-            if (this.cells[row][i].type != CellType.BLOCK && this.cells[row][i].type!=CellType.SPACE) {
-                Grid grid1 = new Grid(this);
-                grid1.parent=this;
-                CellType type=grid1.getCells()[row][i].getType();
-                grid1.getCells()[row][column].setType(type);
-                grid1.getCells()[row][i].setType(CellType.SPACE);
-                this.nextState.add(grid1);
-            }
-        }
-        return this.nextState;
+    public void printCode() {
+
+
+        System.out.println("code :" + Code);
+
+
     }
-    public int randomKey(){
-        int key =97;
-        key=37 * key + this.getCells().hashCode();
-        return key;
+
+    @Override
+    public int hashCode() {            //Hashcode generated from String version of board
+
+        return Code.hashCode();
+
     }
+
     public Cell[][] getCells() {
         return cells;
     }

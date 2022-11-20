@@ -1,31 +1,50 @@
 package com.company.strategies;
 
-import com.company.game.GameInfo;
-import com.company.structure.Action;
+import com.company.game.Game;
 import com.company.structure.Grid;
 
-import javax.swing.*;
-import java.util.Arrays;
+
 import java.util.List;
 
 public class DFS {
-    Grid initializeGrid;
-    Action action;
-    GameInfo gameInfo;
 
 
-    public DFS(Action action, GameInfo gameInfo) {
-        this.initializeGrid = action.getGrid();
-        this.action = action;
-        this.gameInfo = gameInfo;
+    Game game;
+
+    public DFS(Game game) {
+        this.game = game;
     }
 
-    public void search() {
-        Grid grid;
-
-    }
-
-
+//    public boolean search() {
+//        Grid grid = game.getGrid();
+//        game.getGameInfo().stack.push(grid);
+//        while (!(game.getGameInfo().stack.isEmpty())) {
+//            grid.printGrid();
+//            System.out.println("------------------------------------------------");
+//            grid = game.getGameInfo().stack.pop();
+//            game.getGameInfo().visited.add(grid);
+//            if (game.getAction().equals(game.getGoal())) {
+//                return true;
+//            }
+//
+//            List<Grid> list = grid.getNext();
+//            for (Grid temp : list) {
+////                System.out.println(list.size());
+//                boolean check = game.getGameInfo().visited.contains(grid.hashCode());
+//                if (check == false) {
+//                    if (!(game.getGameInfo().stack.contains(temp))) { //checking the stack for duplicate children
+//                        game.getGameInfo().stack.push(temp);
+//                    }
+//
+//
+//                }
+//            }
+//        }
+//
+//        return false;
+//
+//
+//    }
 }
 
 
