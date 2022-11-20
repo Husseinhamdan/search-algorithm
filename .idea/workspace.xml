@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69556eaf-3e9f-4698-b3a4-6a5c4f3868a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/GameInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UserPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UserPlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/game/GameInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/UserPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/UserPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/structure/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Action.java" afterDir="false" />
@@ -108,7 +106,12 @@
       <workItem from="1668878806188" duration="4123000" />
       <workItem from="1668884074707" duration="5299000" />
       <workItem from="1668927360901" duration="187000" />
-      <workItem from="1668928165476" duration="6151000" />
+      <workItem from="1668928165476" duration="8478000" />
+      <workItem from="1668937824928" duration="3325000" />
+      <workItem from="1668949649409" duration="788000" />
+      <workItem from="1668953687884" duration="1034000" />
+      <workItem from="1668955880597" duration="1170000" />
+      <workItem from="1668957085065" duration="26000" />
     </task>
     <servers />
   </component>

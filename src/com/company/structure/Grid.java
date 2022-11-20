@@ -12,6 +12,15 @@ public class Grid {
     private int d;
     //    level of game
     private int level;
+    private int depth = 1;
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
 
     public int getLevel() {
         return level;

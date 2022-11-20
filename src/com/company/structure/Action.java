@@ -79,28 +79,59 @@ public class Action {
                 }
             }
         }
-        for (int i = 0; i < grid.getD(); i++) {
-            if (grid.getCells()[i][column].type != CellType.BLOCK && grid.getCells()[i][column].type != CellType.SPACE) {
-                Grid grid1 = new Grid(grid);
-                grid1.parent = grid;
-                CellType type = grid1.getCells()[i][column].getType();
-                grid1.getCells()[row][column].setType(type);
-                grid1.getCells()[i][column].setType(CellType.SPACE);
-                grid1.setCode();
-                nextState.add(grid1);
-            }
-        }
-        for (int i = 0; i < grid.getD(); i++) {
-            if (grid.getCells()[row][i].type != CellType.BLOCK && grid.getCells()[row][i].type != CellType.SPACE) {
+//        right
+        for (int i = column + 1; i < grid.getD(); i++) {
+            if (grid.getCells()[row][i].type != CellType.BLOCK) {
                 Grid grid1 = new Grid(grid);
                 grid1.parent = grid;
                 CellType type = grid1.getCells()[row][i].getType();
                 grid1.getCells()[row][column].setType(type);
                 grid1.getCells()[row][i].setType(CellType.SPACE);
                 grid1.setCode();
+                grid1.setDepth(grid.getDepth()+1);
                 nextState.add(grid1);
             }
         }
+        //        left
+        for (int i = column - 1; i >= 0; i--) {
+            if (grid.getCells()[row][i].type != CellType.BLOCK) {
+                Grid grid1 = new Grid(grid);
+                grid1.parent = grid;
+                CellType type = grid1.getCells()[row][i].getType();
+                grid1.getCells()[row][column].setType(type);
+                grid1.getCells()[row][i].setType(CellType.SPACE);
+                grid1.setCode();
+                grid1.setDepth(grid.getDepth()+1);
+                nextState.add(grid1);
+            }
+        }
+        //        top
+        for (int i = row - 1; i >= 0; i--) {
+            if (grid.getCells()[i][column].type != CellType.BLOCK) {
+                Grid grid1 = new Grid(grid);
+                grid1.parent = grid;
+                CellType type = grid1.getCells()[i][column].getType();
+                grid1.getCells()[row][column].setType(type);
+                grid1.getCells()[i][column].setType(CellType.SPACE);
+                grid1.setCode();
+                grid1.setDepth(grid.getDepth()+1);
+                nextState.add(grid1);
+            }
+        }
+        //        down ---
+        for (int i = row + 1; i < grid.getD(); i++) {
+            if (grid.getCells()[i][column].type != CellType.BLOCK) {
+                Grid grid1 = new Grid(grid);
+                grid1.parent = grid;
+                CellType type = grid1.getCells()[i][column].getType();
+                grid1.getCells()[row][column].setType(type);
+                grid1.getCells()[i][column].setType(CellType.SPACE);
+                grid1.setCode();
+                grid1.setDepth(grid.getDepth()+1);
+                nextState.add(grid1);
+            }
+        }
+
         return nextState;
     }
 

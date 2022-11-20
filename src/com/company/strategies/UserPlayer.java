@@ -36,14 +36,13 @@ public class UserPlayer {
                 break;
             }
 
-//            List<Grid> grids = action.getNext(grid);
-//            System.out.println("Number of possible state:" + grids.size());
-//            for (Grid grid2 : grids) {
-//                System.out.println("-------------------------------------------");
-//                System.out.println("grid hash code: " + grid2.hashCode());
-//                grid2.printGrid();
-//            }
-//            System.out.println("*******************************************");
+            List<Grid> grids = action.getNext(grid);
+            System.out.println("Number of possible state:" + grids.size());
+            for (Grid grid2 : grids) {
+                System.out.println("-------------------------------------------");
+                grid2.printGrid();
+            }
+            System.out.println("*******************************************");
 
             System.out.print("Enter X :  ");
             x = sc.nextInt();
