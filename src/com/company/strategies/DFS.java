@@ -25,9 +25,9 @@ public class DFS {
     }
 
     public boolean search() {
+        long startTime = System.nanoTime();
         Grid node = start;
         stack.push(node);  // a stack is used to ensure LIFO
-
         while (!(stack.isEmpty())) {
             node.printGrid();
             System.out.println("---------------------------------------");
@@ -38,8 +38,19 @@ public class DFS {
                 System.out.println("***********DFS************");
                 System.out.println("number of visited node: " + visited.size());
                 System.out.println("depth :" + node.getDepth());
-                Path path = new Path(start, node);
-                path.printPath();
+                long endTime = System.nanoTime();
+                long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
+                double durationInSecond = (double) durationInNano / 1000000000;
+                System.out.println("time of execution:" + durationInSecond + " seconds.");
+                System.out.println("---------------------------------------------------------");
+                System.out.println("******** Path ************");
+                System.out.println("print path: 1-yes   2-no");
+                int select = sc.nextInt();
+                if (select == 1) {
+                    Path path = new Path(start, node);
+                    path.printPath();
+
+                }
                 return true;
             }
             List<Grid> list = action.getNext(node);

@@ -23,6 +23,7 @@ public class BFS {
     }
 
     public boolean search() {
+        long startTime = System.nanoTime();
         Grid node = start;
         queue.add(node);
         while (!(queue.isEmpty())) {
@@ -35,15 +36,26 @@ public class BFS {
                 System.out.println("***********BFS************");
                 System.out.println("number of visited node: " + visited.size());
                 System.out.println("depth :" + node.getDepth());
-                Path path = new Path(start, node);
-                path.printPath();
+                long endTime = System.nanoTime();
+                long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
+                double durationInSecond = (double) durationInNano / 1000000000;
+                System.out.println("time of execution:" + durationInSecond + " seconds.");
+                System.out.println("---------------------------------------------------------");
+                System.out.println("******** Path ************");
+                System.out.println("print path: 1-yes   2-no");
+                int select = sc.nextInt();
+                if (select == 1) {
+                    Path path = new Path(start, node);
+                    path.printPath();
+
+                }
                 return true;
             }
             List<Grid> list = action.getNext(node);
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
                 if (ans == false) {
-                    if (!(queue.contains(temp))) { //checking the stack for duplicate children
+                    if (!(queue.contains(temp))) {
                         queue.add(temp);
                     }
 
