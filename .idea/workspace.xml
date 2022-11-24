@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69556eaf-3e9f-4698-b3a4-6a5c4f3868a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/NodeComarator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/UCS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SearchAlgorithm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Path.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Path.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/structure/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Path.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,9 +44,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/company/structure" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -107,7 +116,14 @@
       <workItem from="1668953687884" duration="1034000" />
       <workItem from="1668955880597" duration="1170000" />
       <workItem from="1668957085065" duration="26000" />
-      <workItem from="1669013647601" duration="3463000" />
+      <workItem from="1669013647601" duration="5440000" />
+      <workItem from="1669025306426" duration="538000" />
+      <workItem from="1669026726425" duration="868000" />
+      <workItem from="1669114562718" duration="1297000" />
+      <workItem from="1669140860716" duration="1514000" />
+      <workItem from="1669186972940" duration="1662000" />
+      <workItem from="1669212905036" duration="2893000" />
+      <workItem from="1669266500924" duration="2366000" />
     </task>
     <servers />
   </component>

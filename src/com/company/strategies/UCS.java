@@ -6,36 +6,39 @@ import com.company.structure.Path;
 
 import java.util.*;
 
-public class BFS {
+public class UCS {
     Grid start;
     Grid goal;
     Action action;
-    public Queue<Grid> queue;
+    public PriorityQueue<Grid> pQueue;
     public HashMap<Integer, Grid> visited;
     Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
 
-    public BFS(Action action) {
+    public UCS(Action action) {
         this.action = action;
         InitializeGame();
-        queue = new LinkedList<Grid>();
+        pQueue = new PriorityQueue<Grid>();
         visited = new HashMap<Integer, Grid>();
 
     }
-
+    public void  setPQueue(Comparator c) {
+        pQueue = new PriorityQueue<Grid>(c);
+    }
     public boolean search() {
         long startTime = System.nanoTime();
         Grid node = start;
-        queue.add(node);
-        while (!(queue.isEmpty())) {
+        setPQueue(new NodeComarator());
+        pQueue.add(node);
+        while (!(pQueue.isEmpty())) {
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
-            node = queue.remove();
+            node =pQueue.poll();
             visited.put(node.hashCode(), node);
             if (action.isGoal(node, goal)) {
                 node.printGrid();
-                System.out.println("***********BFS************");
+                System.out.println("***********UCS************");
                 System.out.println("number of visited node: " + visited.size());
                 System.out.println("depth :" + node.getDepth());
                 long endTime = System.nanoTime();
@@ -58,9 +61,9 @@ public class BFS {
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
                 if (ans == false) {
-//                    if (!(queue.contains(temp))) {
-                        queue.add(temp);
-//                    }
+                    if (!(pQueue.contains(temp))) {
+                        pQueue.add(temp);
+                    }
 
                 }
             }

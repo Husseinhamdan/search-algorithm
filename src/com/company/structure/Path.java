@@ -30,6 +30,8 @@ public class Path {
         int size = path.size();
         System.out.println("number of steps:" + size);
         for (int i = size - 1; i >= 0; i--) {
+            System.out.println("max cost : "+path.get(i).getMaxCost());
+            System.out.println("cost : "+path.get(i).getCost());
             path.get(i).printGrid();
             System.out.println("--------------------------------");
         }

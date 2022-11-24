@@ -29,6 +29,8 @@ public class DFS {
         Grid node = start;
         stack.push(node);  // a stack is used to ensure LIFO
         while (!(stack.isEmpty())) {
+            System.out.println("max cost : "+node.getMaxCost());
+            System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
             node = stack.pop();
@@ -42,6 +44,7 @@ public class DFS {
                 long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
                 double durationInSecond = (double) durationInNano / 1000000000;
                 System.out.println("time of execution:" + durationInSecond + " seconds.");
+                System.out.println("max cost : "+node.getMaxCost());
                 System.out.println("---------------------------------------------------------");
                 System.out.println("******** Path ************");
                 System.out.println("print path: 1-yes   2-no");
@@ -57,9 +60,9 @@ public class DFS {
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
                 if (ans == false) {
-                    if (!(stack.contains(temp))) { //checking the stack for duplicate children
+//                    if (!(stack.contains(temp))) {
                         stack.push(temp);
-                    }
+//                    }
 
                 }
             }

@@ -89,6 +89,7 @@ public class Action {
                 grid1.getCells()[row][i].setType(CellType.SPACE);
                 grid1.setCode();
                 grid1.setDepth(grid.getDepth()+1);
+                grid1.setMaxCost();
                 nextState.add(grid1);
             }
         }
@@ -102,6 +103,7 @@ public class Action {
                 grid1.getCells()[row][i].setType(CellType.SPACE);
                 grid1.setCode();
                 grid1.setDepth(grid.getDepth()+1);
+                grid1.setMaxCost();
                 nextState.add(grid1);
             }
         }
@@ -115,6 +117,7 @@ public class Action {
                 grid1.getCells()[i][column].setType(CellType.SPACE);
                 grid1.setCode();
                 grid1.setDepth(grid.getDepth()+1);
+                grid1.setMaxCost();
                 nextState.add(grid1);
             }
         }
@@ -128,6 +131,7 @@ public class Action {
                 grid1.getCells()[i][column].setType(CellType.SPACE);
                 grid1.setCode();
                 grid1.setDepth(grid.getDepth()+1);
+                grid1.setMaxCost();
                 nextState.add(grid1);
             }
         }

@@ -12,7 +12,25 @@ public class Grid {
     private int d;
     //    level of game
     private int level;
-    private int depth = 1;
+    private int depth;
+    private int cost;
+    private int MaxCost;
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public int getMaxCost() {
+        return MaxCost;
+    }
+
+    public void setMaxCost() {
+        MaxCost =this.parent.getMaxCost()+cost;
+    }
 
     public int getDepth() {
         return depth;
@@ -99,6 +117,9 @@ public class Grid {
         this.level = level;
         this.n = level + 1;
         this.d = n + level;
+        this.depth=1;
+        this.cost=1;
+        this.MaxCost=0;
         this.InitializeGrid();
     }
 
@@ -106,6 +127,9 @@ public class Grid {
         this.n = n;
         this.d = d;
         this.cells = new Cell[d][d];
+        this.depth=1;
+        this.cost=1;
+        this.MaxCost=0;
         for (int i = 0; i < this.cells.length; i++)
             for (int j = 0; j < this.cells.length; j++) {
                 this.cells[i][j] = new Cell(cells[i][j]);
