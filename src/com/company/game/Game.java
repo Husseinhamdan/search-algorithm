@@ -1,9 +1,6 @@
 package com.company.game;
 
-import com.company.strategies.BFS;
-import com.company.strategies.DFS;
-import com.company.strategies.UCS;
-import com.company.strategies.UserPlayer;
+import com.company.strategies.*;
 import com.company.structure.Action;
 import com.company.structure.Grid;
 
@@ -29,7 +26,8 @@ public class Game {
             System.out.println("2- DFS");
             System.out.println("3- BFS");
             System.out.println("4- UCS");
-            System.out.println("5- Exit");
+            System.out.println("5- AStar");
+            System.out.println("6- Exit");
             System.out.print("Select Strategies : ");
             int x = scanner.nextInt();
             switch (x) {
@@ -52,8 +50,12 @@ public class Game {
                     UCS ucs = new UCS(action);
                     ucs.search();
                 }
-                break;
                 case 5: {
+                    Astar astar = new Astar(action);
+                    astar.search();
+                }
+                break;
+                case 6: {
                     end = true;
                 }
                 break;

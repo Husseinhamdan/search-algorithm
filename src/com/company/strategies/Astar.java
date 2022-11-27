@@ -1,26 +1,24 @@
 package com.company.strategies;
 
-import com.company.game.Game;
 import com.company.structure.Action;
 import com.company.structure.Grid;
 import com.company.structure.Path;
 
-
 import java.util.*;
 
-public class DFS {
+public class Astar {
     Grid start;
     Grid goal;
     Action action;
     int depthTree;
-    public Stack<Grid> stack;
+    public PriorityQueue<Grid> pQueue;
     public HashMap<Integer, Grid> visited;
     Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
 
-    public DFS(Action action) {
+    public Astar(Action action) {
         this.action = action;
         InitializeGame();
-        stack = new Stack<Grid>();
+        pQueue = new PriorityQueue<Grid>();
         visited = new HashMap<Integer, Grid>();
         this.depthTree=1;
 
@@ -34,34 +32,38 @@ public class DFS {
             this.depthTree=depthTree;
         }
     }
+
+    public void  setPQueue(Comparator c) {
+        pQueue = new PriorityQueue<Grid>(c);
+    }
     public boolean search() {
         long startTime = System.nanoTime();
         Grid node = start;
-        stack.push(node);
-        while (!(stack.isEmpty())) {
+        setPQueue(new AstarComparator());
+        pQueue.add(node);
+        while (!(pQueue.isEmpty())) {
             setDepthTree(node.getDepth());
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
-            node = stack.pop();
-//            if(node.getDepth()>5000){
-//
-//                continue;
-//            }
+            node =pQueue.poll();
+            if(node.getDepth()>5000){
+
+                continue;
+            }
             visited.put(node.hashCode(), node);
             if (action.isGoal(node, goal)) {
-                setDepthTree(node.getDepth());
                 node.printGrid();
-                System.out.println("***********DFS************");
+                System.out.println("*********** AStar ************");
                 System.out.println("number of visited node: " + visited.size());
                 System.out.println("solution depth :" + node.getDepth());
-                System.out.println("tree depth =" + this.getDepthTree());
                 long endTime = System.nanoTime();
                 long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
                 double durationInSecond = (double) durationInNano / 1000000000;
                 System.out.println("time of execution:" + durationInSecond + " seconds.");
                 System.out.println("path cost : "+node.getMaxCost());
+                System.out.println("depth tree =" + this.getDepthTree());
                 System.out.println("---------------------------------------------------------");
                 System.out.println("******** Path ************");
                 System.out.println("print path: 1-yes   2-no");
@@ -77,8 +79,8 @@ public class DFS {
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
                 if (ans == false) {
-                    if (!(stack.contains(temp))) {
-                        stack.push(temp);
+                    if (!(pQueue.contains(temp))) {
+                        pQueue.add(temp);
                     }
 
                 }
@@ -105,9 +107,4 @@ public class DFS {
 
     }
 
-
 }
-
-
-
-

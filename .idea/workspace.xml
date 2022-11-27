@@ -2,23 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69556eaf-3e9f-4698-b3a4-6a5c4f3868a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/NodeComarator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/UCS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/Astar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/strategies/AstarComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SearchAlgorithm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/BFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/DFS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/NodeComarator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/NodeComarator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UCS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/strategies/UCS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Path.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SearchAlgorithm/com/company/structure/Path.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/DFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/strategies/NodeComarator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/NodeComarator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/strategies/UCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/strategies/UCS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/structure/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/structure/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/structure/Path.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +121,15 @@
       <workItem from="1669140860716" duration="1514000" />
       <workItem from="1669186972940" duration="1662000" />
       <workItem from="1669212905036" duration="2893000" />
-      <workItem from="1669266500924" duration="2366000" />
+      <workItem from="1669266500924" duration="2487000" />
+      <workItem from="1669279537174" duration="2242000" />
+      <workItem from="1669282501012" duration="4473000" />
+      <workItem from="1669288018369" duration="468000" />
+      <workItem from="1669358897370" duration="100000" />
+      <workItem from="1669468204972" duration="667000" />
+      <workItem from="1669470326101" duration="768000" />
+      <workItem from="1669490280375" duration="3540000" />
+      <workItem from="1669536325402" duration="17000" />
     </task>
     <servers />
   </component>

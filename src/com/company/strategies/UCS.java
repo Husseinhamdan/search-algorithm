@@ -10,6 +10,7 @@ public class UCS {
     Grid start;
     Grid goal;
     Action action;
+    int depthTree;
     public PriorityQueue<Grid> pQueue;
     public HashMap<Integer, Grid> visited;
     Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
@@ -19,7 +20,17 @@ public class UCS {
         InitializeGame();
         pQueue = new PriorityQueue<Grid>();
         visited = new HashMap<Integer, Grid>();
+        this.depthTree=1;
 
+    }
+    public int getDepthTree() {
+        return depthTree;
+    }
+
+    public void setDepthTree(int depthTree) {
+        if(depthTree>this.depthTree){
+            this.depthTree=depthTree;
+        }
     }
     public void  setPQueue(Comparator c) {
         pQueue = new PriorityQueue<Grid>(c);
@@ -30,22 +41,28 @@ public class UCS {
         setPQueue(new NodeComarator());
         pQueue.add(node);
         while (!(pQueue.isEmpty())) {
+            setDepthTree(node.getDepth());
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
             node =pQueue.poll();
+//            if(node.getDepth()>5000){
+//
+//                continue;
+//            }
             visited.put(node.hashCode(), node);
             if (action.isGoal(node, goal)) {
                 node.printGrid();
                 System.out.println("***********UCS************");
                 System.out.println("number of visited node: " + visited.size());
-                System.out.println("depth :" + node.getDepth());
+                System.out.println("solution depth :" + node.getDepth());
+                System.out.println("tree depth =" + this.getDepthTree());
                 long endTime = System.nanoTime();
                 long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
                 double durationInSecond = (double) durationInNano / 1000000000;
                 System.out.println("time of execution:" + durationInSecond + " seconds.");
-                System.out.println("max cost : "+node.getMaxCost());
+                System.out.println("path cost : "+node.getMaxCost());
                 System.out.println("---------------------------------------------------------");
                 System.out.println("******** Path ************");
                 System.out.println("print path: 1-yes   2-no");

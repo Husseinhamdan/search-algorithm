@@ -15,9 +15,51 @@ public class Grid {
     private int depth;
     private int cost;
     private int MaxCost;
+    private int heuristic = 0;
+    private int AStarCost=0;
+
+    public int getAStarCost() {
+        return AStarCost;
+    }
+
+    public void setAStarCost() {
+        this.AStarCost =this.MaxCost+this.heuristic;
+    }
 
     public int getCost() {
         return cost;
+    }
+
+    public int getHeuristic() {
+        return heuristic;
+    }
+
+    public void setHeuristic(int heuristic) {
+        this.heuristic = heuristic;
+    }
+
+    public void calcHeuristic() {
+        if (this.cells[n-1][n-1].getType() != CellType.SPACE){
+            this.heuristic += 1;
+        }
+        for (int i = 0; i < this.n; i++)
+            for (int j = 0; j < this.n; j++)
+                if (i == this.n - 1 && j == this.n - 1) {
+                    continue;
+                } else {
+                    if (this.cells[i][j].getType() != CellType.BLUE) {
+                        this.heuristic += 1;
+                    }
+                }
+        for (int i = this.n - 1; i < this.d; i++)
+            for (int j = this.n - 1; j < this.d; j++)
+                if (i == this.n - 1 && j == this.n - 1) {
+                    continue;
+                } else {
+                    if (this.cells[i][j].getType() != CellType.RED) {
+                        this.heuristic += 1;
+                    }
+                }
     }
 
     public void setCost(int cost) {
@@ -29,7 +71,7 @@ public class Grid {
     }
 
     public void setMaxCost() {
-        MaxCost =this.parent.getMaxCost()+cost;
+        MaxCost = this.parent.getMaxCost() + cost;
     }
 
     public int getDepth() {
@@ -117,9 +159,9 @@ public class Grid {
         this.level = level;
         this.n = level + 1;
         this.d = n + level;
-        this.depth=1;
-        this.cost=1;
-        this.MaxCost=0;
+        this.depth = 1;
+        this.cost = 1;
+        this.MaxCost = 0;
         this.InitializeGrid();
     }
 
@@ -127,9 +169,9 @@ public class Grid {
         this.n = n;
         this.d = d;
         this.cells = new Cell[d][d];
-        this.depth=1;
-        this.cost=1;
-        this.MaxCost=0;
+        this.depth = 1;
+        this.cost = 1;
+        this.MaxCost = 0;
         for (int i = 0; i < this.cells.length; i++)
             for (int j = 0; j < this.cells.length; j++) {
                 this.cells[i][j] = new Cell(cells[i][j]);
