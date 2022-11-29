@@ -88,8 +88,10 @@ public class Action {
                 grid1.getCells()[row][column].setType(type);
                 grid1.getCells()[row][i].setType(CellType.SPACE);
                 grid1.setCode();
-                grid1.setDepth(grid.getDepth()+1);
+                grid1.setDepth(grid.getDepth() + 1);
                 grid1.setMaxCost();
+                grid1.calcHeuristic();
+                grid1.calcAStarCost();
                 nextState.add(grid1);
             }
         }
@@ -102,8 +104,10 @@ public class Action {
                 grid1.getCells()[row][column].setType(type);
                 grid1.getCells()[row][i].setType(CellType.SPACE);
                 grid1.setCode();
-                grid1.setDepth(grid.getDepth()+1);
+                grid1.setDepth(grid.getDepth() + 1);
                 grid1.setMaxCost();
+                grid1.calcHeuristic();
+                grid1.calcAStarCost();
                 nextState.add(grid1);
             }
         }
@@ -116,8 +120,10 @@ public class Action {
                 grid1.getCells()[row][column].setType(type);
                 grid1.getCells()[i][column].setType(CellType.SPACE);
                 grid1.setCode();
-                grid1.setDepth(grid.getDepth()+1);
+                grid1.setDepth(grid.getDepth() + 1);
                 grid1.setMaxCost();
+                grid1.calcHeuristic();
+                grid1.calcAStarCost();
                 nextState.add(grid1);
             }
         }
@@ -130,8 +136,10 @@ public class Action {
                 grid1.getCells()[row][column].setType(type);
                 grid1.getCells()[i][column].setType(CellType.SPACE);
                 grid1.setCode();
-                grid1.setDepth(grid.getDepth()+1);
+                grid1.setDepth(grid.getDepth() + 1);
                 grid1.setMaxCost();
+                grid1.calcHeuristic();
+                grid1.calcAStarCost();
                 nextState.add(grid1);
             }
         }

@@ -41,12 +41,12 @@ public class UCS {
         setPQueue(new NodeComarator());
         pQueue.add(node);
         while (!(pQueue.isEmpty())) {
-            setDepthTree(node.getDepth());
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
             node =pQueue.poll();
+            setDepthTree(node.getDepth());
 //            if(node.getDepth()>5000){
 //
 //                continue;

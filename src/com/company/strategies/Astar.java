@@ -20,35 +20,37 @@ public class Astar {
         InitializeGame();
         pQueue = new PriorityQueue<Grid>();
         visited = new HashMap<Integer, Grid>();
-        this.depthTree=1;
+        this.depthTree = 1;
 
     }
+
     public int getDepthTree() {
         return depthTree;
     }
 
     public void setDepthTree(int depthTree) {
-        if(depthTree>this.depthTree){
-            this.depthTree=depthTree;
+        if (depthTree > this.depthTree) {
+            this.depthTree = depthTree;
         }
     }
 
-    public void  setPQueue(Comparator c) {
+    public void setPQueue(Comparator c) {
         pQueue = new PriorityQueue<Grid>(c);
     }
+
     public boolean search() {
         long startTime = System.nanoTime();
         Grid node = start;
         setPQueue(new AstarComparator());
         pQueue.add(node);
         while (!(pQueue.isEmpty())) {
-            setDepthTree(node.getDepth());
-            System.out.println("max cost : "+node.getMaxCost());
-            System.out.println("cost : "+node.getCost());
+            System.out.println("max cost : " + node.getMaxCost());
+            System.out.println("cost : " + node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
-            node =pQueue.poll();
-            if(node.getDepth()>5000){
+            node = pQueue.poll();
+            setDepthTree(node.getDepth());
+            if (node.getDepth() > 5000) {
 
                 continue;
             }
@@ -62,7 +64,7 @@ public class Astar {
                 long durationInNano = (endTime - startTime);  //Total execution time in nano seconds
                 double durationInSecond = (double) durationInNano / 1000000000;
                 System.out.println("time of execution:" + durationInSecond + " seconds.");
-                System.out.println("path cost : "+node.getMaxCost());
+                System.out.println("cost of path : " + node.getMaxCost());
                 System.out.println("depth tree =" + this.getDepthTree());
                 System.out.println("---------------------------------------------------------");
                 System.out.println("******** Path ************");
@@ -78,12 +80,15 @@ public class Astar {
             List<Grid> list = action.getNext(node);
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
-                if (ans == false) {
-                    if (!(pQueue.contains(temp))) {
-                        pQueue.add(temp);
-                    }
-
+                Grid grid = visited.get(temp.hashCode());
+                if (ans == false && !pQueue.contains(temp)) {
+                    pQueue.add(temp);
                 }
+                else if (ans==true && grid.getAStarCost() > temp.getAStarCost()) {
+                    visited.get(temp.hashCode()).setAStarCost(temp.getAStarCost());
+                    visited.get(temp.hashCode()).setParent(temp.getParent());
+                }
+                else continue;
             }
         }
         return false;

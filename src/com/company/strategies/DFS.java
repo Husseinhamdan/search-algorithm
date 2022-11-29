@@ -39,12 +39,12 @@ public class DFS {
         Grid node = start;
         stack.push(node);
         while (!(stack.isEmpty())) {
-            setDepthTree(node.getDepth());
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
             node.printGrid();
             System.out.println("---------------------------------------");
             node = stack.pop();
+            setDepthTree(node.getDepth());
 //            if(node.getDepth()>5000){
 //
 //                continue;

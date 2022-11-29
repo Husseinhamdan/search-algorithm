@@ -16,14 +16,25 @@ public class Grid {
     private int cost;
     private int MaxCost;
     private int heuristic = 0;
-    private int AStarCost=0;
+    private int AStarCost = 0;
+    // create Main Grid
+    private Cell[][] cells;
+    //children
+    List<Grid> nextState;
+    //parent grid
+    Grid parent;
+    String Code = "";
 
     public int getAStarCost() {
         return AStarCost;
     }
 
-    public void setAStarCost() {
-        this.AStarCost =this.MaxCost+this.heuristic;
+    public void calcAStarCost() {
+        this.AStarCost = this.MaxCost + this.heuristic;
+    }
+
+    public void setAStarCost(int AStarCost) {
+        this.AStarCost = AStarCost;
     }
 
     public int getCost() {
@@ -39,9 +50,19 @@ public class Grid {
     }
 
     public void calcHeuristic() {
-        if (this.cells[n-1][n-1].getType() != CellType.SPACE){
-            this.heuristic += 1;
-        }
+
+//        if(cells[0][0].getType()!=CellType.BLUE){
+//            heuristic+=1;
+//        }
+//        if(cells[0][1].getType()!=CellType.BLUE){
+//            heuristic+=1;
+//        }
+//       if(cells[this.d-1][this.d-1].getType()!=CellType.RED){
+//            heuristic+=1;
+//        }
+//        if(cells[this.d-1][this.d-2].getType()!=CellType.RED){
+//            heuristic+=1;
+//        }
         for (int i = 0; i < this.n; i++)
             for (int j = 0; j < this.n; j++)
                 if (i == this.n - 1 && j == this.n - 1) {
@@ -90,13 +111,6 @@ public class Grid {
         this.level = level;
     }
 
-    // create Main Grid
-    private Cell[][] cells;
-    //children
-    List<Grid> nextState;
-    //parent grid
-    Grid parent;
-    String Code = "";
 
     public void setCode() {
         for (int i = 0; i < this.cells.length; i++) {
@@ -197,6 +211,7 @@ public class Grid {
         this.createBlueGrid();
         this.createRedGrid();
         this.setCode();
+        this.calcHeuristic();
 
 
     }
@@ -218,6 +233,8 @@ public class Grid {
                     this.getCells()[i][j].setType(CellType.RED);
                 }
         setCode();
+        this.calcHeuristic();
+
 
     }
 
@@ -243,7 +260,8 @@ public class Grid {
     }
 
     public void printGrid() {
-
+        System.out.println("heuristic " + getHeuristic());
+        System.out.println("AStarCost " + AStarCost);
         for (int i = 0; i < this.cells.length; i++) {
             for (int j = 0; j < this.cells.length; j++) {
                 if (this.cells[i][j].getType() == CellType.BLOCK) {
