@@ -51,18 +51,18 @@ public class Grid {
 
     public void calcHeuristic() {
 
-//        if(cells[0][0].getType()!=CellType.BLUE){
-//            heuristic+=1;
-//        }
-//        if(cells[0][1].getType()!=CellType.BLUE){
-//            heuristic+=1;
-//        }
-//       if(cells[this.d-1][this.d-1].getType()!=CellType.RED){
-//            heuristic+=1;
-//        }
-//        if(cells[this.d-1][this.d-2].getType()!=CellType.RED){
-//            heuristic+=1;
-//        }
+        if(cells[0][0].getType()!=CellType.BLUE){
+            heuristic+=1;
+        }
+        if(cells[0][1].getType()!=CellType.BLUE){
+            heuristic+=1;
+        }
+       if(cells[this.d-1][this.d-1].getType()!=CellType.RED){
+            heuristic+=1;
+        }
+        if(cells[this.d-1][this.d-2].getType()!=CellType.RED){
+            heuristic+=1;
+        }
         for (int i = 0; i < this.n; i++)
             for (int j = 0; j < this.n; j++)
                 if (i == this.n - 1 && j == this.n - 1) {

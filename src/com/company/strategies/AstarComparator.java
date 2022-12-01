@@ -12,6 +12,12 @@ public class AstarComparator implements Comparator<Grid> {
             return 1;
         else if (o1.getAStarCost()< o2.getAStarCost())
             return -1;
+        else {
+            if (o1.getHeuristic() > o2.getHeuristic())
+                return 1;
+            else if (o1.getHeuristic()< o2.getHeuristic())
+                return -1;
+        }
         return 0;
     }
 

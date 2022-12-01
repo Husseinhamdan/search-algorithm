@@ -41,7 +41,7 @@ public class BFS {
         while (!(queue.isEmpty())) {
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
-            node.printGrid();
+//            node.printGrid();
             System.out.println("---------------------------------------");
             node = queue.remove();
             setDepthTree(node.getDepth());

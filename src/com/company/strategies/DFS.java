@@ -41,7 +41,7 @@ public class DFS {
         while (!(stack.isEmpty())) {
             System.out.println("max cost : "+node.getMaxCost());
             System.out.println("cost : "+node.getCost());
-            node.printGrid();
+//            node.printGrid();
             System.out.println("---------------------------------------");
             node = stack.pop();
             setDepthTree(node.getDepth());

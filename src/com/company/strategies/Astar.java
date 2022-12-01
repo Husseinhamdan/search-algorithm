@@ -44,16 +44,16 @@ public class Astar {
         setPQueue(new AstarComparator());
         pQueue.add(node);
         while (!(pQueue.isEmpty())) {
-            System.out.println("max cost : " + node.getMaxCost());
-            System.out.println("cost : " + node.getCost());
-            node.printGrid();
-            System.out.println("---------------------------------------");
+//            System.out.println("max cost : " + node.getMaxCost());
+//            System.out.println("cost : " + node.getCost());
+//            node.printGrid();
+//            System.out.println("---------------------------------------");
             node = pQueue.poll();
             setDepthTree(node.getDepth());
-            if (node.getDepth() > 5000) {
-
-                continue;
-            }
+//            if (node.getDepth() > 5000) {
+//
+//                continue;
+//            }
             visited.put(node.hashCode(), node);
             if (action.isGoal(node, goal)) {
                 node.printGrid();
@@ -84,7 +84,7 @@ public class Astar {
                 if (ans == false && !pQueue.contains(temp)) {
                     pQueue.add(temp);
                 }
-                else if (ans==true && grid.getAStarCost() > temp.getAStarCost()) {
+                else if (ans==true && grid.getMaxCost() > temp.getMaxCost()) {
                     visited.get(temp.hashCode()).setAStarCost(temp.getAStarCost());
                     visited.get(temp.hashCode()).setParent(temp.getParent());
                 }
