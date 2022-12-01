@@ -80,15 +80,19 @@ public class Astar {
             List<Grid> list = action.getNext(node);
             for (Grid temp : list) {
                 boolean ans = visited.containsKey(temp.hashCode());
-                Grid grid = visited.get(temp.hashCode());
+                // if not in open and close
                 if (ans == false && !pQueue.contains(temp)) {
                     pQueue.add(temp);
                 }
-                else if (ans==true && grid.getMaxCost() > temp.getMaxCost()) {
+//                open condition
+                else if (pQueue.removeIf(grid -> (grid.hashCode() == temp.hashCode() && grid.getMaxCost()>temp.getMaxCost()))) {
+                    pQueue.add(temp);
+                }
+//                close condition
+                else if (ans == true && visited.get(temp.hashCode()).getMaxCost() > temp.getMaxCost()) {
                     visited.get(temp.hashCode()).setAStarCost(temp.getAStarCost());
                     visited.get(temp.hashCode()).setParent(temp.getParent());
-                }
-                else continue;
+                } else continue;
             }
         }
         return false;
